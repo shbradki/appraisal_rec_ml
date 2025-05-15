@@ -1,0 +1,265 @@
+orderID,candidate_address,score,explanation
+4723364,2480 Hitchcock Rd,2.000732898712158,same property type = matched; effective age diff impact = 1.33; gla diff impact = 0.59
+4723364,2738 Isle of Man Rd,1.3566951751708984,same property type = matched; abs subject age diff impact = 0.92; effective age diff impact = 0.83
+4723364,1996 McFarlane Rd,-0.4489098787307739,effective age diff impact = 1.78; same property type = matched; abs effective age diff impact = 0.41
+4742669,2536 4 Ave NW,3.8794193267822266,same property type = matched; abs room count diff impact = 0.85; effective age diff impact = 0.79
+4742669,523 35A St NW,3.5732338428497314,same property type = matched; subject age diff impact = 0.97; abs room count diff impact = 0.89
+4742669,2425 3 Ave NW,2.985198497772217,same property type = matched; effective age diff impact = 1.11; abs room count diff impact = 0.85
+4752865,1253 Adamson Dr SW,3.4281835556030273,same property type = matched; abs room count diff impact = 0.88; effective age diff impact = 0.76
+4752865,3116 Winspear Cres SW,3.2226288318634033,same property type = matched; abs room count diff impact = 1.10; effective age diff impact = 0.86
+4752865,716 40 St SW,1.5110477209091187,same property type = matched; sold recently impact = 0.91; effective age diff impact = 0.69
+4755196,156 Aquarium Ave,3.704723834991455,same property type = matched; abs room count diff impact = 0.86; gla diff impact = 0.73
+4755196,415 Hepatica Way,2.1503384113311768,same property type = matched; abs subject age diff impact = 1.05; gla diff impact = 0.80
+4755196,1959 Montclair Ave,0.41495275497436523,same property type = matched; effective age diff impact = 0.98; abs room count diff impact = 0.47
+4756192,Unit 2602 - 510 6 Avenue SE,3.019770622253418,same property type = matched; effective age diff impact = 1.34; abs room count diff impact = 0.81
+4756192,Unit 2608 - 530 3 Street SE,2.980984926223755,same property type = matched; abs subject age diff impact = 1.18; abs room count diff impact = 0.98
+4756192,3205-930 6 Ave SW,2.407128095626831,same property type = matched; effective age diff impact = 1.22; abs room count diff impact = 0.97
+4756320,146 Allard Link SW,4.1772141456604,same property type = matched; abs room count diff impact = 1.05; effective age diff impact = 0.78
+4756320,3018 Arthurs Cres SW,3.6828131675720215,same property type = matched; abs room count diff impact = 1.09; effective age diff impact = 0.88
+4756320,645 Allard Blvd SW,3.6119682788848877,same property type = matched; abs room count diff impact = 0.94; effective age diff impact = 0.76
+4756829,178 Joshua St,2.7353296279907227,same property type = matched; effective age diff impact = 0.94; abs room count diff impact = 0.89
+4756829,283 Falsetto St,2.4125583171844482,same property type = matched; abs room count diff impact = 0.81; room count diff impact = 0.80
+4756829,783 Percifor Way,1.5577105283737183,same property type = matched; gla diff impact = 0.74; effective age diff impact = 0.71
+4757939,3310 Centre St NE,3.692603588104248,same property type = matched; abs room count diff impact = 1.02; effective age diff impact = 0.73
+4757939,632 12 Ave NE,3.3537869453430176,same property type = matched; effective age diff impact = 1.22; sold recently impact = 0.91
+4757939,924 15 Ave NE,2.499140501022339,same property type = matched; subject age diff impact = 0.86; abs room count diff impact = 0.70
+4757966,206-88 Arbour Lake Rd NW,3.0212767124176025,same property type = matched; abs room count diff impact = 0.98; gla diff impact = 0.77
+4757966,215-88 Arbour Lake Rd NW,2.706597089767456,same property type = matched; abs subject age diff impact = 0.99; abs room count diff impact = 0.95
+4757966,2207-950 Arbour Lake Rd NW,1.8428035974502563,same property type = matched; effective age diff impact = 0.89; abs room count diff impact = 0.78
+4758025,4 Rockcliff Pt NW,3.879462242126465,same property type = matched; abs room count diff impact = 0.84; effective age diff impact = 0.82
+4758025,61 Rockford Rd NW,1.2188979387283325,same property type = matched; abs subject age diff impact = 0.74; room count diff impact = 0.67
+4758025,1 Rock Lake Pt NW,1.0756347179412842,same property type = matched; subject age diff impact = 0.82; effective age diff impact = 0.74
+4758316,216-100 Auburn Meadows Manor SE,3.556871175765991,same property type = matched; abs room count diff impact = 1.01; effective age diff impact = 0.87
+4758316,105-22 Auburn Bay Link SE,2.6912763118743896,same property type = matched; abs room count diff impact = 0.97; gla diff impact = 0.82
+4758316,411-25 Auburn Meadows Ave SE,2.370671033859253,same property type = matched; effective age diff impact = 0.96; gla diff impact = 0.89
+4758324,20 Creekside Way,3.202399253845215,same property type = matched; abs room count diff impact = 0.88; subject age diff impact = 0.78
+4758324,102 Deeridge Rd,2.9805872440338135,same property type = matched; abs room count diff impact = 1.04; effective age diff impact = 0.86
+4758324,5296 Highway 329,2.9390742778778076,same property type = matched; effective age diff impact = 1.48; sold recently impact = 0.70
+4758529,904-71 Simcoe St,3.2546169757843018,same property type = matched; effective age diff impact = 1.10; gla diff impact = 0.72
+4758529,2805-361 Front St W,3.0078725814819336,same property type = matched; effective age diff impact = 0.98; abs room count diff impact = 0.93
+4758529,3103-126 Simcoe St,1.276909351348877,same property type = matched; abs room count diff impact = 0.76; room count diff impact = 0.59
+4758615,57 Morenz Terr,2.83323073387146,same property type = matched; effective age diff impact = 0.90; abs subject age diff impact = 0.89
+4758615,90 Kinmount Pvt,1.0242884159088135,same property type = matched; effective age diff impact = 1.04; abs subject age diff impact = 0.81
+4758615,41 Coulson Crt,0.834752082824707,same property type = matched; effective age diff impact = 1.12; gla diff impact = 0.71
+4758672,47 Denise Dr,3.533714771270752,same property type = matched; effective age diff impact = 1.47; abs room count diff impact = 0.68
+4758672,6547 Highway 7,2.2447896003723145,effective age diff impact = 1.36; same property type = matched; room count diff impact = 0.78
+4758672,1 Partridge Nest Dr,1.926316499710083,same property type = matched; effective age diff impact = 1.16; room count diff impact = 0.60
+4758996,156 Marquis Pl SE,3.467021942138672,same property type = matched; effective age diff impact = 0.91; abs subject age diff impact = 0.84
+4758996,1852 Meadowbrook Dr SE,3.4009790420532227,same property type = matched; abs room count diff impact = 0.81; effective age diff impact = 0.77
+4758996,168 Marquis Pl SE,3.0396196842193604,same property type = matched; abs subject age diff impact = 1.06; abs room count diff impact = 0.90
+4759024,85 Sage Hill Cres NW,-0.15628184378147125,abs lot size sf diff impact = 1.16; same property type = matched; abs gla diff impact = 0.84
+4759024,18 Carrington Rd NW,-1.2810465097427368,abs gla diff impact = 1.72; same property type = matched; effective age diff impact = -0.58
+4759024,275 Lucas Way NW,-3.341413974761963,effective age diff impact = -0.75; same property type = matched; abs lot size sf diff impact = 0.63
+4759088,5 Willowdale Dr,2.796154022216797,same property type = matched; effective age diff impact = 1.07; abs room count diff impact = 0.81
+4759088,2 Willowdale Dr,2.045649290084839,same property type = matched; abs room count diff impact = 0.94; effective age diff impact = 0.65
+4759088,137 Myers Point Rd,1.9938163757324219,same property type = matched; effective age diff impact = 1.16; sold recently impact = 0.69
+4759260,43 Summer Lane,3.8671555519104004,same property type = matched; effective age diff impact = 1.06; abs room count diff impact = 0.77
+4759260,7730 Highway 329,2.9973487854003906,same property type = matched; effective age diff impact = 0.91; gla diff impact = 0.77
+4759260,46 Highway 3,2.855813980102539,same property type = matched; effective age diff impact = 1.07; subject age diff impact = 0.71
+4759498,53 Armagh Way,3.610517740249634,same property type = matched; abs room count diff impact = 0.83; effective age diff impact = 0.76
+4759498,393 Stoneway Dr,2.838029623031616,same property type = matched; effective age diff impact = 0.92; abs room count diff impact = 0.78
+4759498,24 Avonhurst Ave,2.3770434856414795,same property type = matched; effective age diff impact = 0.87; abs room count diff impact = 0.69
+4759512,4 Piers Ave,3.5555500984191895,same property type = matched; effective age diff impact = 1.11; sold recently impact = 0.95
+4759512,44 Walton Dr,3.4091899394989014,same property type = matched; effective age diff impact = 0.88; subject age diff impact = 0.84
+4759512,34 Craigmore Dr,3.1529433727264404,same property type = matched; effective age diff impact = 1.54; room count diff impact = 0.83
+4759561,73 Prince Albert Rd,3.082871675491333,effective age diff impact = 2.35; subject age diff impact = 1.25; same property type = matched
+4759561,135 Hawthorne St,2.235835075378418,effective age diff impact = 2.39; same property type = matched; subject age diff impact = 0.92
+4759561,85/87 Pleasant Street,-0.881066620349884,effective age diff impact = 1.21; same property type = matched; subject age diff impact = 0.71
+4759562,177 Melrose Cres,4.275368690490723,same property type = matched; abs room count diff impact = 0.93; effective age diff impact = 0.87
+4759562,49 Peter Crt,3.6814236640930176,same property type = matched; effective age diff impact = 1.25; abs room count diff impact = 0.94
+4759562,1702 Caldwell Rd,3.453986406326294,same property type = matched; gla diff impact = 0.84; effective age diff impact = 0.83
+4759604,94 Tamarack Dr,3.1707630157470703,same property type = matched; effective age diff impact = 1.09; room count diff impact = 0.78
+4759604,45 Ridgestone Crt,3.0947327613830566,same property type = matched; abs room count diff impact = 1.08; effective age diff impact = 1.06
+4759604,23 White Dove Crt,3.0032286643981934,same property type = matched; effective age diff impact = 1.33; abs subject age diff impact = 0.62
+4759647,1 Virginia Dr,3.4750704765319824,same property type = matched; effective age diff impact = 0.80; abs room count diff impact = 0.79
+4759647,209 Glen Arbour Way,3.110915184020996,same property type = matched; effective age diff impact = 0.95; gla diff impact = 0.67
+4759647,1693 White Hills Run,1.8099733591079712,same property type = matched; room count diff impact = 0.92; effective age diff impact = 0.65
+4759723,334 Shadehill Cres,3.2579500675201416,same property type = matched; abs room count diff impact = 0.85; effective age diff impact = 0.64
+4759723,142 Chenoa Way,2.2104921340942383,same property type = matched; effective age diff impact = 1.11; abs room count diff impact = 0.95
+4759723,100 Brambling Way,1.984700083732605,same property type = matched; effective age diff impact = 1.04; gla diff impact = 0.89
+4759846,40 Kingston Cres,3.962482452392578,same property type = matched; effective age diff impact = 1.07; abs room count diff impact = 1.01
+4759846,36 Mount Pleasant Ave,2.761664390563965,same property type = matched; effective age diff impact = 0.93; abs room count diff impact = 0.67
+4759846,2 Lawnsdale Dr,0.6628917455673218,same property type = matched; effective age diff impact = 1.10; gla diff impact = 0.59
+4760530,11 Union St,2.0347352027893066,same property type = matched; effective age diff impact = 1.07; room count diff impact = 0.58
+4760530,3948 Vandorf Siderd,1.6496819257736206,same property type = matched; room count diff impact = 0.82; abs room count diff impact = 0.61
+4760530,9 Elias Snider Crt,1.0090192556381226,effective age diff impact = 1.29; same property type = matched; subject age diff impact = 0.59
+4760630,133 William St,-0.19855374097824097,effective age diff impact = 1.53; same property type = matched; subject age diff impact = 0.73
+4760630,297 University Ave,-0.7441708445549011,effective age diff impact = 1.48; same property type = matched; subject age diff impact = 0.56
+4760630,368 Barrie St,-1.291398525238037,effective age diff impact = 1.55; same property type = matched; subject age diff impact = 0.48
+4760651,4 Victoria Dr,3.678164005279541,same property type = matched; gla diff impact = 0.75; abs room count diff impact = 0.74
+4760651,9 Penstock Crt,3.6730120182037354,same property type = matched; abs room count diff impact = 0.96; room count diff impact = 0.68
+4760651,57 Taleen Dr,3.122715950012207,same property type = matched; abs room count diff impact = 0.79; effective age diff impact = 0.70
+4760900,90 Corner Ridge Mews NE,3.5405187606811523,same property type = matched; abs room count diff impact = 1.08; abs subject age diff impact = 0.82
+4760900,312 Redstone Ave NE,3.499894142150879,same property type = matched; abs room count diff impact = 1.02; subject age diff impact = 0.81
+4760900,1059 Cornerstone St NE,2.1000943183898926,same property type = matched; abs subject age diff impact = 1.06; abs room count diff impact = 0.80
+4761220,74 Gianmarco Way,3.2702341079711914,same property type = matched; abs room count diff impact = 0.89; effective age diff impact = 0.82
+4761220,20 Del Francesco Way,2.985048294067383,same property type = matched; abs room count diff impact = 0.80; gla diff impact = 0.69
+4761220,3 Blackthorn Dr,2.6946327686309814,same property type = matched; abs room count diff impact = 0.82; effective age diff impact = 0.67
+4761433,107 Ahmadi Cres,1.7532278299331665,same property type = matched; effective age diff impact = 1.11; gla diff impact = 0.63
+4761433,428 Heddas Way,1.7049784660339355,same property type = matched; room count diff impact = 0.87; subject age diff impact = 0.71
+4761433,158 Eaglewood Dr,1.4389803409576416,same property type = matched; effective age diff impact = 0.87; room count diff impact = 0.66
+4761446,891 Safari Dr,1.168379545211792,effective age diff impact = 1.70; same property type = matched; abs effective age diff impact = 0.45
+4761446,868 Roshan Dr,0.799447774887085,same property type = matched; effective age diff impact = 0.94; gla diff impact = 0.70
+4761446,871 Crestwood Ave,-0.5184438228607178,same property type = matched; effective age diff impact = 1.10; gla diff impact = 0.45
+4761696,225 Lift Lane,3.8474862575531006,same property type = matched; abs room count diff impact = 0.93; abs subject age diff impact = 0.88
+4761696,514 Triangle St,3.317105770111084,same property type = matched; abs room count diff impact = 0.91; abs subject age diff impact = 0.88
+4761696,655 Allied Mews,2.795809030532837,same property type = matched; abs subject age diff impact = 1.21; abs room count diff impact = 0.94
+4762154,401-11 Springvale Ave,3.6323788166046143,same property type = matched; abs room count diff impact = 0.89; effective age diff impact = 0.84
+4762154,111-11 Springvale Ave,3.1928858757019043,same property type = matched; abs room count diff impact = 1.11; effective age diff impact = 0.74
+4762154,306-79 Bedros Lane,3.033327102661133,same property type = matched; gla diff impact = 0.93; abs room count diff impact = 0.86
+4762330,118 Sandpiper Pk,3.1859970092773438,same property type = matched; abs room count diff impact = 1.14; effective age diff impact = 0.76
+4762330,109 Kinniburgh Cove,3.051063060760498,same property type = matched; abs subject age diff impact = 1.04; effective age diff impact = 0.75
+4762330,19 Sandpiper Bend,2.6055853366851807,same property type = matched; abs room count diff impact = 0.78; abs subject age diff impact = 0.75
+4762406,401 Viewmount Dr,1.244979977607727,same property type = matched; effective age diff impact = 1.07; room count diff impact = 0.78
+4762406,2 Crouchers Point Rd,1.1443145275115967,same property type = matched; effective age diff impact = 1.10; sold recently impact = 0.55
+4762406,58 Blind Bay Dr,-0.017751717939972878,same property type = matched; effective age diff impact = 1.01; room count diff impact = 0.69
+4762597,930 Amberdale Cres,3.9822280406951904,same property type = matched; effective age diff impact = 1.10; abs room count diff impact = 1.05
+4762597,771 Ashwood Dr,3.5355801582336426,same property type = matched; abs room count diff impact = 1.01; effective age diff impact = 1.00
+4762597,995 Amberdale Cres,3.359933853149414,same property type = matched; abs room count diff impact = 1.02; effective age diff impact = 0.96
+4762739,270 Quinlan Dr,3.9926230907440186,same property type = matched; abs room count diff impact = 1.09; effective age diff impact = 1.02
+4762739,85 Oceanic Dr,3.958026647567749,same property type = matched; abs subject age diff impact = 1.15; abs room count diff impact = 1.10
+4762739,64 Deermist Dr,3.883307695388794,same property type = matched; abs room count diff impact = 1.11; abs subject age diff impact = 1.02
+4763065,3219 Roseville Rd,1.788640022277832,same property type = matched; abs room count diff impact = 0.74; room count diff impact = 0.68
+4763065,13 James Crt,1.3412220478057861,same property type = matched; subject age diff impact = 0.78; abs subject age diff impact = 0.78
+4763065,6 Marshall Ave,0.9257988929748535,effective age diff impact = 1.34; same property type = matched; room count diff impact = 0.70
+4763086,36 Stonewalk Dr,2.513824462890625,same property type = matched; abs subject age diff impact = 0.88; abs room count diff impact = 0.83
+4763086,56 Stonewalk Dr,2.0429322719573975,effective age diff impact = 1.93; same property type = matched; gla diff impact = 0.76
+4763086,339 Pinehill Rd,0.8520745635032654,same property type = matched; abs room count diff impact = 0.62; gla diff impact = 0.50
+4763087,313-79 Bedros Lane,3.5852136611938477,same property type = matched; effective age diff impact = 0.91; abs room count diff impact = 0.85
+4763087,210-40 Regency Park Dr,3.3456952571868896,same property type = matched; effective age diff impact = 0.99; gla diff impact = 0.79
+4763087,Unit 503 78 Regency Park Drive,2.9208269119262695,same property type = matched; effective age diff impact = 0.76; abs room count diff impact = 0.73
+4763606,1-150 Broadway,1.8208467960357666,abs bath score diff impact = 1.40; same property type = matched; abs gla diff impact = 1.01
+4763606,21-4552 Portage Rd,1.6704444885253906,same property type = matched; abs bath score diff impact = 1.24; half baths diff impact = 1.01
+4763606,14-96 Welland Rd,1.4397238492965698,abs bath score diff impact = 1.38; same property type = matched; abs gla diff impact = 0.93
+4763898,13 Chestnut Lane,4.124600887298584,same property type = matched; abs room count diff impact = 1.06; effective age diff impact = 1.06
+4763898,9 Chittick Ave,3.621666431427002,same property type = matched; effective age diff impact = 1.42; subject age diff impact = 0.74
+4763898,27 Cranston Ave,3.4727718830108643,same property type = matched; effective age diff impact = 1.33; subject age diff impact = 0.76
+4764028,2 Brigadier Pvt,1.4322947263717651,same property type = matched; effective age diff impact = 1.01; abs room count diff impact = 0.64
+4764028,366 Bruyère St,1.3043216466903687,same property type = matched; effective age diff impact = 1.27; abs gla diff impact = 0.49
+4764028,383 Daly Ave,1.293800950050354,effective age diff impact = 1.45; same property type = matched; gla diff impact = 0.50
+4764094,38 Deerbrooke Dr,3.955845355987549,same property type = matched; effective age diff impact = 1.22; abs room count diff impact = 1.08
+4764094,18 Becks Way,3.6074953079223633,same property type = matched; abs room count diff impact = 0.98; gla diff impact = 0.77
+4764094,123 Crestwood Pl,2.5720691680908203,same property type = matched; abs room count diff impact = 0.89; gla diff impact = 0.84
+4764103,138 Banff Rd,1.5522140264511108,same property type = matched; effective age diff impact = 0.93; sold recently impact = 0.89
+4764103,142 Donlea Dr,1.1815052032470703,same property type = matched; effective age diff impact = 1.03; subject age diff impact = 0.65
+4764103,128 Donegall Dr,0.8464815616607666,effective age diff impact = 1.62; same property type = matched; subject age diff impact = 0.59
+4765154,768 Cataraqui Woods Dr,0.8244869709014893,same property type = matched; abs subject age diff impact = 0.95; effective age diff impact = 0.81
+4765154,1131 Wintergreen Cres,0.6875908970832825,same property type = matched; abs subject age diff impact = 0.92; effective age diff impact = 0.89
+4765154,829 Larchwood Cres,0.3486097753047943,same property type = matched; abs subject age diff impact = 0.90; effective age diff impact = 0.82
+4765502,6673 Riverview Line,0.32295989990234375,effective age diff impact = 1.22; same property type = matched; subject age diff impact = 0.71
+4765502,6129 Seventh Line W,0.11311396211385727,same property type = matched; effective age diff impact = 0.88; abs gla diff impact = 0.70
+4765502,23805 Merlin Rd,-0.8196666240692139,effective age diff impact = 0.98; same property type = matched; subject age diff impact = 0.53
+4765899,67 Schooner Dr,0.5947292447090149,same property type = matched; effective age diff impact = 0.95; abs bath score diff impact = 0.51
+4765899,63 Schooner Dr,0.5169011950492859,same property type = matched; effective age diff impact = 1.02; lot size sf diff impact = 0.52
+4765899,469 Freeman Cres,-1.2763193845748901,same property type = matched; effective age diff impact = 0.86; abs effective age diff impact = 0.35
+4765948,1-21 Cherry St,1.5271762609481812,effective age diff impact = 1.50; same property type = matched; room count diff impact = 0.57
+4765948,46 York St,1.0758904218673706,subject age diff impact = 1.45; bath score diff impact = 1.41; bedrooms diff impact = 0.76
+4765948,275 Division St,1.0680079460144043,effective age diff impact = 1.84; bath score diff impact = 1.55; subject age diff impact = 0.67
+4766326,816 Dickens Ave,1.7785621881484985,same property type = matched; effective age diff impact = 1.04; abs room count diff impact = 0.74
+4766326,1035 Connery Ave,1.4569487571716309,same property type = matched; abs subject age diff impact = 0.91; effective age diff impact = 0.86
+4766326,826 Hamlet Rd,0.8729897737503052,same property type = matched; effective age diff impact = 1.12; abs subject age diff impact = 0.63
+4766430,238 Willett St,3.9383487701416016,same property type = matched; abs room count diff impact = 1.06; effective age diff impact = 0.73
+4766430,92 Forestside Cres,3.7393319606781006,same property type = matched; effective age diff impact = 0.92; abs room count diff impact = 0.84
+4766430,75 Forestside Cres,3.3018927574157715,same property type = matched; effective age diff impact = 0.90; abs room count diff impact = 0.87
+4767066,1606-108 Waterfront Crt SW,3.2163243293762207,abs subject age diff impact = 1.76; same property type = matched; subject age diff impact = 1.00
+4767066,2104-930 16 Ave SW,3.2163243293762207,abs subject age diff impact = 1.89; same property type = matched; subject age diff impact = 1.04
+4767066,1112-730 2 Ave SW,3.2077760696411133,abs subject age diff impact = 1.71; same property type = matched; abs room count diff impact = 0.97
+4768014,328 Appalachian Cir,2.7114551067352295,same property type = matched; gla diff impact = 0.80; abs room count diff impact = 0.78
+4768014,2402 Regatta Ave,2.5958173274993896,same property type = matched; effective age diff impact = 0.76; gla diff impact = 0.74
+4768014,111 Damselfly Way,2.047581434249878,same property type = matched; abs subject age diff impact = 0.79; gla diff impact = 0.78
+4768037,226 Kent St,1.2393990755081177,effective age diff impact = 1.44; same property type = matched; subject age diff impact = 0.73
+4768037,168 Windsor St,1.2305570840835571,same property type = matched; room count diff impact = 0.86; effective age diff impact = 0.85
+4768037,1105 Haist Street,-0.4072491228580475,same property type = matched; effective age diff impact = 1.05; room count diff impact = 0.51
+4768126,550 Paine Ave,3.7034881114959717,same property type = matched; abs room count diff impact = 1.00; effective age diff impact = 0.82
+4768126,164 Calvington Ave,2.4019875526428223,same property type = matched; abs room count diff impact = 0.95; gla diff impact = 0.82
+4768126,524 Paine Ave,1.4338492155075073,same property type = matched; effective age diff impact = 0.85; gla diff impact = 0.83
+4768528,965 Linaria Walk,1.942787766456604,same property type = matched; half baths diff impact = 1.08; abs bath score diff impact = 1.06
+4768528,2282 Descartes St,1.7877095937728882,same property type = matched; abs bath score diff impact = 1.13; half baths diff impact = 1.09
+4768528,958 Socca Cres,1.5173829793930054,same property type = matched; abs bath score diff impact = 1.12; half baths diff impact = 0.79
+4769110,3882 Novalea Dr,3.730093002319336,same property type = matched; effective age diff impact = 1.20; abs room count diff impact = 0.86
+4769110,5617 Carriageway Cres,3.5072195529937744,same property type = matched; abs room count diff impact = 0.99; effective age diff impact = 0.76
+4769110,3518 John Parr Dr,3.21158504486084,same property type = matched; effective age diff impact = 1.27; abs room count diff impact = 0.86
+4769269,84343 Kent Line,2.985048294067383,same property type = matched; abs subject age diff impact = 0.88; abs room count diff impact = 0.82
+4769269,253 Queen Street,0.8338323831558228,same property type = matched; effective age diff impact = 1.08; room count diff impact = 0.55
+4769269,234 Henry Street,0.4044593870639801,abs gla diff impact = 2.36; same property type = matched; effective age diff impact = -0.51
+4770115,116 Blackhorse Dr,2.324237108230591,same property type = matched; abs subject age diff impact = 1.02; sold recently impact = 1.00
+4770115,189 Blackhorse Dr,2.0311665534973145,same property type = matched; abs subject age diff impact = 0.78; abs room count diff impact = 0.77
+4770115,13 Tilly Lane,1.6827995777130127,same property type = matched; abs subject age diff impact = 1.06; abs room count diff impact = 0.81
+4770310,261 Arthur St,1.7261637449264526,effective age diff impact = 2.12; same property type = matched; subject age diff impact = 0.79
+4770310,260 John St,1.7019745111465454,effective age diff impact = 2.43; same property type = matched; subject age diff impact = 0.92
+4770310,198 South St,1.107684850692749,effective age diff impact = 2.29; same property type = matched; subject age diff impact = 0.87
+4771029,63 Martinview Cres NE,3.01558518409729,same property type = matched; effective age diff impact = 1.48; sold recently impact = 0.75
+4771029,133 Saddlelake Grove NE,2.2424278259277344,same property type = matched; gla diff impact = 0.75; effective age diff impact = 0.75
+4771029,286 Taravista Dr NE,1.8239308595657349,same property type = matched; effective age diff impact = 1.11; gla diff impact = 0.61
+4771097,202-550 Talbot Pl,4.320362091064453,same property type = matched; effective age diff impact = 1.05; abs room count diff impact = 1.04
+4771097,305-540 Talbot Pl,3.8220276832580566,same property type = matched; abs room count diff impact = 1.02; effective age diff impact = 0.83
+4771097,404-610 William St S,1.208663821220398,same property type = matched; effective age diff impact = 0.99; abs room count diff impact = 0.58
+4771641,1134 Alpine Ave SW,3.497875928878784,same property type = matched; effective age diff impact = 1.00; abs subject age diff impact = 0.97
+4771641,116 Ambleside Cres NW,3.3603053092956543,same property type = matched; abs subject age diff impact = 1.19; abs room count diff impact = 1.01
+4771641,140 Carringford View NW,2.512052536010742,same property type = matched; abs room count diff impact = 0.80; effective age diff impact = 0.79
+4772017,6248 Taralea Pk NE,3.948477268218994,same property type = matched; effective age diff impact = 0.94; abs room count diff impact = 0.86
+4772017,232 Taracove Rd NE,3.7157373428344727,same property type = matched; abs room count diff impact = 0.91; effective age diff impact = 0.84
+4772017,39 Saddlemont Way NE,2.663957118988037,same property type = matched; effective age diff impact = 0.78; abs room count diff impact = 0.73
+4772152,193 Hidden Ranch Hill NW,3.281583070755005,same property type = matched; abs subject age diff impact = 1.07; effective age diff impact = 1.04
+4772152,10673 Hidden Valley Dr NW,3.222341537475586,same property type = matched; abs subject age diff impact = 0.90; effective age diff impact = 0.85
+4772152,130 Hidden Ranch Rd NW,3.0996899604797363,same property type = matched; abs subject age diff impact = 0.87; effective age diff impact = 0.82
+4773295,12017 Station Rd,0.5829604864120483,same property type = matched; abs subject age diff impact = 0.77; subject age diff impact = 0.70
+4773295,1584 North Shore Dr,0.43365657329559326,same property type = matched; effective age diff impact = 1.06; abs lot size sf diff impact = 0.61
+4773295,40 Erie Heights Line,-0.7435457110404968,same property type = matched; effective age diff impact = 1.02; room count diff impact = -0.71
+4773534,54025 Wellandport Rd,1.473469853401184,same property type = matched; effective age diff impact = 1.23; gla diff impact = 0.78
+4773534,1376 Bird Road,0.37747126817703247,same property type = matched; effective age diff impact = 0.60; gla diff impact = -0.53
+4773534,4 Philips Court,0.36649447679519653,same property type = matched; room count diff impact = 0.67; subject age diff impact = 0.64
+4773833,737 Concession Rd 2,0.6165745854377747,same property type = matched; effective age diff impact = 0.91; subject age diff impact = 0.88
+4773833,6040 Middle Side Rd,-0.9975929856300354,same property type = matched; gla diff impact = -0.80; subject age diff impact = 0.75
+4773833,7050 County Road 18,-1.148210883140564,same property type = matched; gla diff impact = -0.93; effective age diff impact = 0.60
+4775247,6 McIntyre Pl,1.858141541481018,same property type = matched; abs subject age diff impact = 1.00; gla diff impact = 0.79
+4775247,3 Lloyd Cres NE,1.4699732065200806,same property type = matched; effective age diff impact = 0.70; abs room count diff impact = 0.69
+4775247,42 Besse Ave,0.9559736847877502,same property type = matched; abs subject age diff impact = 0.84; gla diff impact = 0.68
+4775292,7167 Seventh Line,1.2804046869277954,same property type = matched; effective age diff impact = 1.11; room count diff impact = 0.64
+4775292,8 Hilltop Cres,0.9998524785041809,same property type = matched; effective age diff impact = 0.94; lot size sf diff impact = 0.71
+4775292,5739 Sixth Line,0.8181989789009094,same property type = matched; effective age diff impact = 1.03; subject age diff impact = 0.71
+4775785,116 Dowdle Rd,1.9669677019119263,effective age diff impact = 2.54; same property type = matched; subject age diff impact = 0.80
+4775785,3858 County Rd 1 E,1.711814284324646,effective age diff impact = 1.66; same property type = matched; subject age diff impact = 0.65
+4775785,1977 Thorpe Road,1.3942506313323975,same property type = matched; subject age diff impact = 0.90; abs room count diff impact = 0.73
+4775892,42 Sandringham Crt,4.01250696182251,same property type = matched; effective age diff impact = 1.03; abs room count diff impact = 1.03
+4775892,41 Lincoln Crt,3.7385575771331787,same property type = matched; abs room count diff impact = 0.90; gla diff impact = 0.70
+4775892,238 Fleetwood Cres,2.0532968044281006,same property type = matched; effective age diff impact = 1.01; abs room count diff impact = 0.88
+4776066,161 Everoak Cir SW,3.7821829319000244,same property type = matched; effective age diff impact = 0.83; abs room count diff impact = 0.73
+4776066,320 Everglade Cir SW,3.4417152404785156,same property type = matched; abs room count diff impact = 0.77; effective age diff impact = 0.76
+4776066,278 Everoak Drive SW,2.5024209022521973,same property type = matched; effective age diff impact = 0.75; abs room count diff impact = 0.66
+4776534,25 Timberline Crt SW,1.9340620040893555,abs subject age diff impact = 1.82; same property type = matched; subject age diff impact = 1.17
+4776534,75 Aspen Summit Crt SW,-1.3354815244674683,same property type = matched; subject age diff impact = 0.59; abs room count diff impact = 0.58
+4776534,25 Timberline Court SW,-1.7313158512115479,abs subject age diff impact = 1.33; same property type = matched; abs room count diff impact = -0.76
+4776574,579 Copperpond Cir SE,2.4055356979370117,same property type = matched; abs room count diff impact = 0.91; room count diff impact = 0.79
+4776574,3 Copperleaf Pk SE,2.3162615299224854,same property type = matched; abs subject age diff impact = 0.64; gla diff impact = 0.63
+4776574,2224 Brightoncrest Green SE,1.979458212852478,same property type = matched; abs subject age diff impact = 0.85; gla diff impact = 0.75
+4776648,605 Truedell Rd,0.9964832663536072,same property type = matched; effective age diff impact = 1.01; abs subject age diff impact = 0.81
+4776648,862 Kilburn St,0.8602801561355591,same property type = matched; effective age diff impact = 0.96; abs subject age diff impact = 0.80
+4776648,355 Boxwood St,0.49529242515563965,same property type = matched; effective age diff impact = 0.93; subject age diff impact = 0.61
+4777578,115 Hanson Dr NE,3.309925079345703,same property type = matched; effective age diff impact = 0.81; room count diff impact = 0.71
+4777578,565 Boulder Creek Cir,2.5159623622894287,same property type = matched; effective age diff impact = 1.04; abs room count diff impact = 0.74
+4777578,264 Boulder Creek Dr,2.2778496742248535,same property type = matched; abs room count diff impact = 0.70; gla diff impact = 0.69
+4777828,14 Grundy Cres,1.2690746784210205,abs subject age diff impact = 1.75; same property type = matched; subject age diff impact = 0.89
+4777828,13 Grundy Cres,1.0480914115905762,abs subject age diff impact = 1.66; same property type = matched; subject age diff impact = 0.94
+4777828,77 Taylor Dr,0.8661133646965027,abs subject age diff impact = 1.73; same property type = matched; subject age diff impact = 0.71
+4778326,164 Sandpiper Cir NW,2.539337158203125,same property type = matched; effective age diff impact = 0.97; abs subject age diff impact = 0.81
+4778326,123 Sandringham Pl NW,2.039041042327881,same property type = matched; abs subject age diff impact = 0.92; gla diff impact = 0.70
+4778326,108 Macewan Park Green NW,1.058785319328308,same property type = matched; abs subject age diff impact = 0.77; gla diff impact = 0.74
+4778535,1521 27 Ave SW,2.46563982963562,same property type = matched; effective age diff impact = 1.22; gla diff impact = 0.65
+4778535,4724 Stanley Rd SW,2.259211540222168,effective age diff impact = 1.67; same property type = matched; sold recently impact = 1.10
+4778535,1527 28 Ave SW,1.424070119857788,same property type = matched; effective age diff impact = 0.95; room count diff impact = 0.70
+4778557,56 Douglasview Rise SE,3.097071647644043,same property type = matched; abs room count diff impact = 0.85; abs subject age diff impact = 0.78
+4778557,3617 Douglas Woods Hts SE,2.909980535507202,same property type = matched; abs room count diff impact = 0.81; effective age diff impact = 0.68
+4778557,739 Queensland Dr SE,1.6518006324768066,same property type = matched; effective age diff impact = 1.27; abs room count diff impact = 0.51
+4778791,403-501 Frontenac St,3.655104875564575,same property type = matched; effective age diff impact = 1.52; gla diff impact = 0.61
+4778791,920-652 Princess St,2.8193562030792236,effective age diff impact = 1.70; same property type = matched; abs bath score diff impact = 0.70
+4778791,701-121 Queen St,2.059741258621216,effective age diff impact = 1.77; same property type = matched; gla diff impact = 0.67
+4778794,403-501 Frontenac St,3.655104875564575,same property type = matched; effective age diff impact = 1.51; gla diff impact = 0.66
+4778794,920-652 Princess St,2.8193562030792236,effective age diff impact = 1.73; same property type = matched; abs bath score diff impact = 0.69
+4778794,701-121 Queen St,2.059741258621216,effective age diff impact = 1.80; same property type = matched; gla diff impact = 0.63
+4778797,403-501 Frontenac St,2.8328826427459717,same property type = matched; effective age diff impact = 1.60; abs room count diff impact = 0.49
+4778797,920-652 Princess St,2.5015506744384766,effective age diff impact = 1.78; same property type = matched; abs gla diff impact = 0.62
+4778797,701-121 Queen St,1.4675052165985107,same property type = matched; effective age diff impact = 1.32; abs bath score diff impact = 0.70
+4779669,61 Bush Clover Cres,3.614074230194092,same property type = matched; effective age diff impact = 0.86; gla diff impact = 0.80
+4779669,85 Eastforest Trail,3.5476601123809814,same property type = matched; effective age diff impact = 0.88; abs room count diff impact = 0.80
+4779669,7 Peach Blossom Cres,1.5512102842330933,same property type = matched; abs subject age diff impact = 1.00; gla diff impact = 0.80

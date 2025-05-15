@@ -151,22 +151,42 @@ def lot_size_diff(appraisal):
     subject = appraisal['subject']
     subject_lot_size = subject.get('lot_size_sf')
 
-    if not subject_lot_size:
-        return appraisal
-    
     for comp in appraisal['comps']:
         comp_lot_size = comp.get('lot_size_sf')
-        if comp_lot_size:
+        if subject_lot_size is not None and comp_lot_size is not None:
             comp['lot_size_diff_sf'] = subject_lot_size - comp_lot_size
         else:
             comp['lot_size_diff_sf'] = None
 
     for property in appraisal['properties']:
         property_lot_size = property.get('lot_size_sf')
-        if property_lot_size:
+        if subject_lot_size is not None and property_lot_size is not None:
             property['lot_size_diff_sf'] = subject_lot_size - property_lot_size
         else:
             property['lot_size_diff_sf'] = None
+
+    return appraisal
+
+def gla_diff(appraisal):
+    subject = appraisal['subject']
+    subject_gla = subject.get('gla')
+
+    if not subject_gla:
+        return appraisal
+    
+    for comp in appraisal['comps']:
+        comp_gla = comp.get('gla')
+        if comp_gla:
+            comp['gla_diff'] = subject_gla - comp_gla
+        else:
+            comp['gla_diff'] = None
+
+    for property in appraisal['properties']:
+        property_gla = property.get('gla')
+        if property_gla:
+            property['gla_diff'] = subject_gla - property_gla
+        else:
+            property['gla_diff'] = None
 
     return appraisal
 
@@ -182,17 +202,108 @@ def room_diff(appraisal):
         if comp_rooms:
             comp['room_count_diff'] = subject_rooms - comp_rooms
         else:
-            comp['total_rooms_diff'] = None
+            comp['room_count_diff'] = None
 
     for property in appraisal['properties']:
         property_rooms = property.get('room_count')
         if property_rooms:
-            property['total_rooms_diff'] = subject_rooms - comp_rooms
+            property['room_count_diff'] = subject_rooms - property_rooms
         else:
-            property['total_rooms_diff'] = None
+            property['room_count_diff'] = None
     
     return appraisal
 
+def bedroom_diff(appraisal):
+    subject = appraisal['subject']
+    subject_bedrooms = subject.get('num_beds')
+
+    if not subject_bedrooms:
+        return appraisal
+
+    for comp in appraisal['comps']:
+        comp_bedrooms = comp.get('bed_count')
+        if comp_bedrooms:
+            comp['bedrooms_diff'] = subject_bedrooms - comp_bedrooms
+        else:
+            comp['bedrooms_diff'] = None
+
+    for property in appraisal['properties']:
+        property_bedrooms = property.get('bedrooms')
+        if property_bedrooms:
+            property['bedrooms_diff'] = subject_bedrooms - property_bedrooms
+        else:
+            property['bedrooms_diff'] = None
+    
+    return appraisal
+
+def bath_score_diff(appraisal):
+    subject = appraisal['subject']
+    subject_bath_score = subject.get('bath_score')
+
+    if not subject_bath_score:
+        return appraisal
+
+    for comp in appraisal['comps']:
+        comp_bath_score = comp.get('bath_score')
+        if comp_bath_score:
+            comp['bath_score_diff'] = subject_bath_score - comp_bath_score
+        else:
+            comp['bath_score_diff'] = None
+
+    for property in appraisal['properties']:
+        property_bath_score = property.get('bath_score')
+        if property_bath_score:
+            property['bath_score_diff'] = subject_bath_score - property_bath_score
+        else:
+            property['bath_score_diff'] = None
+    
+    return appraisal
+
+def full_bath_diff(appraisal):
+    subject = appraisal['subject']
+    subject_fulls = subject.get('num_full_baths')
+
+    if not subject_fulls:
+        return appraisal
+
+    for comp in appraisal['comps']:
+        comp_fulls = comp.get('num_full_baths')
+        if comp_fulls:
+            comp['full_baths_diff'] = subject_fulls - comp_fulls
+        else:
+            comp['full_baths_diff'] = None
+
+    for property in appraisal['properties']:
+        property_fulls = property.get('num_full_baths')
+        if property_fulls:
+            property['full_baths_diff'] = subject_fulls - property_fulls
+        else:
+            property['full_baths_diff'] = None
+    
+    return appraisal
+
+def half_bath_diff(appraisal):
+    subject = appraisal['subject']
+    subject_halfs = subject.get('num_half_baths')
+
+    if not subject_halfs:
+        return appraisal
+
+    for comp in appraisal['comps']:
+        comp_halfs = comp.get('num_half_baths')
+        if comp_halfs:
+            comp['half_baths_diff'] = subject_halfs - comp_halfs
+        else:
+            comp['half_baths_diff'] = None
+
+    for property in appraisal['properties']:
+        property_halfs = property.get('num_half_baths')
+        if property_halfs:
+            property['half_baths_diff'] = subject_halfs - property_halfs
+        else:
+            property['half_baths_diff'] = None
+    
+    return appraisal
 
 def add_new_features():
     with open(INPUT_FILE, "r") as f:
@@ -207,8 +318,12 @@ def add_new_features():
         effective_age_diff(appraisal)
         subject_age_diff(appraisal)
         lot_size_diff(appraisal)
+        gla_diff(appraisal)
         room_diff(appraisal)
-
+        bedroom_diff(appraisal)
+        bath_score_diff(appraisal)
+        full_bath_diff(appraisal)
+        half_bath_diff(appraisal)
 
         feature_engineered.append(appraisal)
 
