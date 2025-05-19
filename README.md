@@ -51,7 +51,7 @@ streamlit run app.py
 
 Users can provide feedback on poor comp predictions directly in the UI:
 - Feedback is logged and integrated into the next training cycle
-- Bad comps may are dropped entirely
+- Bad comps are dropped entirely
 - Over time, the model learns from user guidance and improves
 
 ---
