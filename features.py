@@ -1,9 +1,16 @@
 import json
 from dateutil import parser
 from fuzzywuzzy import process
+from geopy.distance import geodesic
 
+# Config
 INPUT_FILE = "cleaned_appraisals_dataset.json"
 OUTPUT_FILE = "feature_engineered_appraisals_dataset.json"
+
+ADDRESS_FILE = "geocoded_addresses.json"
+
+with open(ADDRESS_FILE, "r") as f:
+            address_data = json.load(f)
 
 CANONICAL_TYPES = [
     "Townhouse", "Detached", "Condominium", "Semi Detached",
@@ -72,11 +79,11 @@ def map_to_property_type(raw):
 
     val = str(raw).lower().strip().replace(",", "").replace("-", " ")
 
-    # 1. Manual check first
+    # Manual check first
     if val in manual_type_map:
         return manual_type_map[val]
 
-    # 2. Fuzzy fallback to catch close things like "semi detached"
+    # Fuzzy fallback to catch close things
     match, score = process.extractOne(val, CANONICAL_TYPES, scorer=process.fuzz.partial_ratio)
     return match if score >= 80 else None
 
@@ -85,19 +92,23 @@ def same_property_type(appraisal):
     subject = appraisal['subject']
     subject_raw = subject.get('structure_type')
     subject_type = map_to_property_type(subject_raw)
+    subject['property_type'] = subject_type
 
     if not subject_type:
-        return appraisal  # skip if undefined/none
+        return appraisal  
 
     for comp in appraisal['comps']:
         comp_raw = comp.get('prop_type')
         comp_type = map_to_property_type(comp_raw)
+        comp['property_type'] = comp_type
         comp['same_property_type'] = int(subject_type == comp_type)
 
     for property in appraisal['properties']:
         property_raw = property.get('property_sub_type')
         property_type = map_to_property_type(property_raw)
+        property['property_type'] = property_type
         property['same_property_type'] = int(subject_type == property_type)
+        
 
     return appraisal
 
@@ -221,14 +232,14 @@ def bedroom_diff(appraisal):
         return appraisal
 
     for comp in appraisal['comps']:
-        comp_bedrooms = comp.get('bed_count')
+        comp_bedrooms = comp.get('num_beds')
         if comp_bedrooms:
             comp['bedrooms_diff'] = subject_bedrooms - comp_bedrooms
         else:
             comp['bedrooms_diff'] = None
 
     for property in appraisal['properties']:
-        property_bedrooms = property.get('bedrooms')
+        property_bedrooms = property.get('num_beds')
         if property_bedrooms:
             property['bedrooms_diff'] = subject_bedrooms - property_bedrooms
         else:
@@ -305,10 +316,87 @@ def half_bath_diff(appraisal):
     
     return appraisal
 
+def add_geocoded_addresses(appraisal):
+    def get_lat_lon(address):
+        data = address_data.get(address)
+        if data and isinstance(data, dict):
+            return data.get('lat'), data.get('lon')
+        return None, None
+
+    subject = appraisal['subject']
+    subject_address = subject.get('address').lower()
+    subject['lat'], subject['lon'] = get_lat_lon(subject_address)
+
+    for comp in appraisal.get('comps', []):
+        comp_address = comp.get('address').lower()
+        comp['lat'], comp['lon'] = get_lat_lon(comp_address)
+
+    for prop in appraisal.get('properties', []):
+        prop_address = prop.get('address').lower()
+        prop['lat'], prop['lon'] = get_lat_lon(prop_address)
+
+    return appraisal
+
+def get_distance_to_subject(appraisal):
+
+    def get_dist(sub_lat, sub_lon, lat, lon):
+        try:
+            dist_km = geodesic(
+                (sub_lat, sub_lon), (lat, lon)
+            ).km
+            return round(dist_km, 3)
+        except Exception as e:
+            print(f"Distance error for {comp_address}: {e}")
+            return None
+
+    subject = appraisal['subject']
+    subject_lat = subject.get('lat')
+    subject_lon = subject.get('lon')
+
+    if subject_lat is None or subject_lon is None:
+        print(subject.get('address'))
+        return appraisal 
+
+    for comp in appraisal['comps']:
+
+        # Skip if already has a valid distance
+        if comp.get('distance_to_subject_km') is not None:
+            continue
+
+        comp_address = comp.get('address')
+        if not comp_address:
+            continue
+
+        cached = address_data.get(comp_address.lower())
+        if cached and isinstance(cached, dict):
+            comp_lat = cached.get('lat')
+            comp_lon = cached.get('lon')
+            if comp_lat is not None and comp_lon is not None:
+
+                # Calculate geodesic distance in kilometers
+                comp['distance_to_subject_km'] = get_dist(subject_lat, subject_lon, comp_lat, comp_lon)
+
+    for property in appraisal['properties']:
+        property_address = property.get('address')
+        if not property_address: 
+            continue
+
+        cached = address_data.get(property_address.lower())
+        if cached and isinstance(cached, dict):
+            property_lat = cached.get('lat')
+            property_lon = cached.get('lon')
+            if property_lat is not None and property_lon is not None:
+
+                # Calculate geodesic distance in kilometers
+                property['distance_to_subject_km'] = get_dist(subject_lat, subject_lon, property_lat, property_lon)
+        
+    return appraisal 
+        
+
 def add_new_features():
     with open(INPUT_FILE, "r") as f:
             data = json.load(f)
-    
+
     feature_engineered = []
     
     for appraisal in data["appraisals"]:
@@ -324,6 +412,9 @@ def add_new_features():
         bath_score_diff(appraisal)
         full_bath_diff(appraisal)
         half_bath_diff(appraisal)
+
+        add_geocoded_addresses(appraisal)
+        get_distance_to_subject(appraisal)
 
         feature_engineered.append(appraisal)
 
