@@ -9,3 +9,4 @@ tqdm
 geopy
 fuzzywuzzy
 python-dateutil
+matplotlib

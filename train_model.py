@@ -4,7 +4,6 @@ from sklearn.model_selection import train_test_split
 import numpy as np
 import os
 import shap
-import matplotlib.pyplot as plt
 
 SHUFFLE_LABELS = False
 
