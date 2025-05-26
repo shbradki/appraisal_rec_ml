@@ -20,7 +20,33 @@ You are a real estate data extractor. From the following listing description ("p
 If a value is missing or ambiguous, return null. Do not guess. Use the public_remarks as the single source of truth.
 
 Extract the following fields:
-... [unchanged] ...
+
+- num_beds: The total number of bedrooms (integer)
+- num_full_baths: The total number of full bathrooms (integer)
+- num_half_baths: The total number of half bathrooms (integer)
+- bath_score: Total combines number of bathrooms (float, computed as full + 0.5 * half)
+- lot size (float, converted to acres if not already in acres)
+- GLA (float, converted to square feet if not already in square feet)
+- has_garage (1/0/null)
+- has_basement (1/0/null)
+- basement_finished (1/0/null)
+- basement_walkout (1/0/null)
+- basement_full_part (1/0.5/null)
+- has_deck (1/0/null)
+- has_fireplace (1/0/null)
+- central_air (1/0/null)
+- window_unit (1/0/null)
+- heating_type (Forced Air/Baseboard/null, string)
+- has_pool (1/0/null)
+- has_renovation (1/0/null)
+- flooring_types (array of strings)
+- style (string)
+- condition (Excellent, Good, Average, Fair) YOU MAY ONLY USE ONE OF THESE 4 CONDITION OPTIONS, DO NOT GET CREATIVE
+
+Return JSON with exactly these keys. If unsure, return nulls.
+Do not include any code block formatting or explanatory text.
+
+Public Remarks:
 \"\"\"{remarks.strip()}\"\"\"
 """
 
