@@ -41,6 +41,9 @@ def make_row(order_id, subject, candidate, address, is_comp):
         "subject_age_diff": candidate.get('subject_age_diff'),
         "lot_size_sf_diff": candidate.get('lot_size_diff_sf'),
         "gla_diff": candidate.get('gla_diff'),
+        "gla_per_bedroom_diff": candidate.get('gla_per_bedroom_diff'),
+        "lot_util_diff": candidate.get('lot_util_diff'),
+        "condition_diff" : candidate.get('condition_diff'),
 
         "abs_bath_score_diff": safe_abs(candidate.get("bath_score_diff")),
         "abs_full_bath_diff": safe_abs(candidate.get("full_baths_diff")),
@@ -116,7 +119,6 @@ def apply_feedback(df, feedback_file):
 
     # Drop rows where user marked the candidate as bad and it wasn't originally a comp
     drop_mask = (merged["user_feedback"] == 0) & (merged["is_comp"] == 0)
-    num_dropped = drop_mask.sum()
     merged = merged[~drop_mask]
 
     return merged.drop(columns=["user_feedback", "norm_addr"], errors="ignore")
@@ -131,5 +133,7 @@ if __name__ == "__main__":
     print(f"Base training data saved to: {OUTPUT_FILE} ({df.shape})")
 
     df_with_feedback = apply_feedback(df.copy(), FEEDBACK_FILE)
-    df_with_feedback.to_csv(OUTPUT_WITH_FEEDBACK, index=False)
-    print(f"Training data with feedback saved to: {OUTPUT_WITH_FEEDBACK} ({df_with_feedback.shape})")
+
+    if df_with_feedback.shape != df.shape:
+        df_with_feedback.to_csv(OUTPUT_WITH_FEEDBACK, index=False)
+        print(f"Training data with feedback saved to: {OUTPUT_WITH_FEEDBACK} ({df_with_feedback.shape})")

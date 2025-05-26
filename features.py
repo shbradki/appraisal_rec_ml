@@ -7,10 +7,18 @@ from geopy.distance import geodesic
 INPUT_FILE = "cleaned_appraisals_dataset.json"
 OUTPUT_FILE = "feature_engineered_appraisals_dataset.json"
 
+
 ADDRESS_FILE = "geocoded_addresses.json"
 
 with open(ADDRESS_FILE, "r") as f:
             address_data = json.load(f)
+
+
+EXTRACTED_DATA_FILE= "gpt_extracted_features_appraisals.json"
+
+with open(EXTRACTED_DATA_FILE, "r") as f:
+            extracted_data = json.load(f)
+
 
 CANONICAL_TYPES = [
     "Townhouse", "Detached", "Condominium", "Semi Detached",
@@ -48,6 +56,52 @@ manual_type_map = {
     "": None,
     None: None
 }
+
+extracted_lookup = {}
+for appraisal in extracted_data['appraisals']:
+    for prop in appraisal.get("properties", []):
+        key = prop.get("address", "").strip().lower()
+        if key:
+            extracted_lookup[key] = prop
+
+def normalize_extracted_values():
+    FIELDS_TO_SUM = [
+        "num_beds", "num_full_baths", "num_half_baths",
+        "has_garage", "has_basement", "has_deck",
+        "has_fireplace", "has_air_conditioning"
+    ]
+
+    for appraisal in extracted_data['appraisals']:
+        for prop in appraisal.get("properties", []):
+            for field in FIELDS_TO_SUM:
+                val = prop.get(field)
+                if isinstance(val, dict):
+                    try:
+                        flattened = [
+                            v for v in val.values()
+                            if isinstance(v, (int, float)) and v is not None
+                        ]
+                        prop[field] = sum(flattened)
+                    except Exception as e:
+                        print(f"Error flattening {field} in {prop.get('address')}: {e}")
+
+
+def merge_property_records(cleaned, extracted):
+    final = {}
+    all_keys = set(cleaned.keys()) | set(extracted.keys())
+    for key in all_keys:
+        val_extracted = extracted.get(key)
+        val_cleaned = cleaned.get(key)
+        final[key] = val_extracted if val_extracted is not None else val_cleaned
+    return final
+
+def merge_extracted_features(appraisal):
+    for i, prop in enumerate(appraisal.get("properties", [])):
+        key = prop.get("address", "").strip().lower()
+        extracted = extracted_lookup.get(key)
+        if extracted:
+            appraisal["properties"][i] = merge_property_records(prop, extracted)
+    return appraisal
 
 
 def sold_recently(appraisal):
@@ -392,15 +446,128 @@ def get_distance_to_subject(appraisal):
         
     return appraisal 
         
+def get_gla_per_bedroom(appraisal):
+    subject = appraisal['subject']
+    subject_bedrooms = subject.get('num_beds')
+    subject_gla = subject.get('gla')
+
+    if not subject_bedrooms or not subject_gla:
+        return appraisal
+
+    subject_gla_per_bedroom = subject_gla / subject_bedrooms
+
+    for comp in appraisal['comps']:
+        comp_bedrooms = comp.get('num_beds')
+        comp_gla = comp.get('gla')
+
+        if comp_bedrooms and comp_gla:
+            comp_gla_per_bedroom = comp_gla / comp_bedrooms
+            comp['gla_per_bedroom_diff'] = abs(subject_gla_per_bedroom - comp_gla_per_bedroom)
+        else:
+            comp['gla_per_bedroom_diff'] = None
+
+    for property in appraisal['properties']:
+        property_bedrooms = property.get('num_beds')
+        property_gla = property.get('gla')
+
+        if property_bedrooms and property_gla:
+            property_gla_per_bedroom = comp_gla / comp_bedrooms
+            property['gla_per_bedroom_diff'] = abs(subject_gla_per_bedroom - property_gla_per_bedroom)
+        else:
+            property['gla_per_bedroom_diff'] = None
+    
+    return appraisal
+
+def get_lot_util(appraisal):
+    subject = appraisal['subject']
+    subject_lot_size = subject.get('lot_size_sf')
+    subject_gla = subject.get('gla')
+
+    if not subject_lot_size or not subject_gla and subject_lot_size != 0:
+        return appraisal
+
+    subject_lot_util = subject_gla / subject_lot_size
+
+    for comp in appraisal['comps']:
+        comp_lot_size = comp.get('lot_size_sf')
+        comp_gla = comp.get('gla')
+
+        if comp_lot_size and comp_gla and comp_lot_size != 0:
+            comp_lot_util = comp_gla / comp_lot_size
+            comp['lot_util_diff'] = abs(subject_lot_util - comp_lot_util)
+        else:
+            comp['lot_util_diff'] = None
+
+    for property in appraisal['properties']:
+        property_lot_size = property.get('lot_size_sf')
+        property_gla = property.get('gla')
+
+        if property_lot_size and property_gla and property_lot_size != 0:
+            property_lot_util = comp_gla / property_lot_size
+            property['lot_util_diff'] = abs(subject_lot_util - property_lot_util)
+        else:
+            property['lot_util_diff'] = None
+    
+    return appraisal
+
+def condition_to_score(val):
+
+    match val:
+        case "fair":
+            return 1
+        case "average":
+            return 2    
+        case "good":
+            return 3
+        case "excellent":
+            return 4
+        case "like new":
+            return 3
+    
+
+def get_condition_diff(appraisal):
+    subject = appraisal['subject']
+    subject_condition = subject.get('condition')
+
+    if not subject_condition:
+        return appraisal
+
+    subject_condition = condition_to_score(subject_condition.lower())
+
+    for comp in appraisal.get('comps'):
+        comp_condition = comp.get('condition')
+        match comp_condition:
+            case "Similar":
+                comp_condition = subject_condition
+            case "Inferior":
+                comp_condition = subject_condition - 1
+            case "Superior":
+                comp_condition = subject_condition + 1
+            case _:
+                comp_condition = condition_to_score(comp_condition.lower())
+        
+        comp['condition_diff'] = abs(subject_condition - comp_condition)
+
+    for prop in appraisal.get('properties'):
+        prop_condition = prop.get('condition')
+        if prop_condition:
+            prop_condition = condition_to_score(prop_condition.lower())
+            prop['condition_diff'] = abs(subject_condition - prop_condition)
+        
+
+    return appraisal
 
 def add_new_features():
     with open(INPUT_FILE, "r") as f:
             data = json.load(f)
 
+    normalize_extracted_values()
+
     feature_engineered = []
     
+
     for appraisal in data["appraisals"]:
-        
+        merge_extracted_features(appraisal)
         sold_recently(appraisal)
         same_property_type(appraisal)
         effective_age_diff(appraisal)
@@ -415,6 +582,11 @@ def add_new_features():
 
         add_geocoded_addresses(appraisal)
         get_distance_to_subject(appraisal)
+
+        get_gla_per_bedroom(appraisal)
+        get_lot_util(appraisal)
+
+        get_condition_diff(appraisal)
 
         feature_engineered.append(appraisal)
 

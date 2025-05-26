@@ -6,6 +6,7 @@ It uses:
 - XGBoost for pairwise ranking
 - SHAP for explainability
 - GPT-3.5 for natural language explanations
+- GPT-3.5 for property remark parsing for accurate data
 
 ---
 
@@ -39,6 +40,7 @@ streamlit run app.py
 
 - Reads a JSON dataset of appraisals and candidate properties
 - Cleans/parses the necessary appraisal data
+- Uses ChatGPT-3.5 to parse public property remarks to improve data accuracy and completeness
 - Runs geocoding for all addresses if needed
 - Performs feature engineering on each candidate vs. subject
 - Trains a ranking model to score candidate comparables
@@ -60,6 +62,7 @@ Users can provide feedback on poor comp predictions directly in the UI:
 
 - `appraisals_dataset.json`: Input data
 - `cleaned_appraisals_dataset.json`: Cleaned/parsed appraisal data
+- `gpt_extracted_features_appraisals.json`: Appraisal data parsed from public remarks
 - `feature_engineered_appraisals_dataset.json`: Feature engineered appraisal data
 - `geocoded_addresses.json`: Longitude and latitude data for each address in the dataset
 - `training_data.csv`: Processed training dataset
@@ -69,3 +72,14 @@ Users can provide feedback on poor comp predictions directly in the UI:
 
 ---
 
+## Key Improvments this Iteration
+
+- Parsing `public-remarks` data using ChatGPT-3.5 to get more reliable and accurate data. It also allowed for addition of new data like condition data and other property features
+- Merging this new data into the final dataset, prioritizing public remarks data as ground truth
+- This new data took the precision up to 98%, with condition difference being the most important new feature
+- Removed some of the less important features according to SHAP feature analysis
+## Thoughts on Future Improvements
+
+- More data: Appraisers think about more than just things like "are there the same number of bedrooms" or "is the GLA similar". Things like trendy cabinetry or window sizes or general aesthetics are also important factors to consider for appraisers.
+- System for adding new data points: The ability to add new appraisals, potential properties, etc.
+- Better understanding of neighborhoods: Rather than just distance between coordinates, a system for better understanding whether or not two properties are in the same neighborhood, school district, etc.

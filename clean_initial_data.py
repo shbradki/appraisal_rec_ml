@@ -321,6 +321,10 @@ def clean_all_data():
         clean_comp_distances(appraisal)
 
         cleaned.append(appraisal)
+
+    print(unique_subject_conditions)
+    print(unique_comp_conditions)
+    print(unique_property_conditions)
     
     with open(OUTPUT_FILE, "w") as f:
         json.dump({"appraisals": cleaned}, f, indent=2)

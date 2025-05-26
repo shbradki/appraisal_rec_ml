@@ -31,14 +31,17 @@ print(f"Using training data: {data_file}")
 
 # Feature columns 
 feature_cols = [
-    'bath_score_diff', 'full_baths_diff', 'half_baths_diff',
+    # 'bath_score_diff', 'full_baths_diff', 'half_baths_diff',
     'room_count_diff', 'bedrooms_diff', 'effective_age_diff',
-    'subject_age_diff', 'lot_size_sf_diff', 'gla_diff',
-    'abs_bath_score_diff', 'abs_full_bath_diff', 'abs_half_bath_diff',
-    'abs_room_count_diff', 'abs_bedrooms_diff', 'abs_effective_age_diff',
-    'abs_subject_age_diff', 'abs_lot_size_sf_diff', 'abs_gla_diff',
-    'same_property_type', 'sold_recently', # 'distance_to_subject_km'
+    'subject_age_diff', 'gla_diff', # 'lot_size_sf_diff'
+    'abs_bath_score_diff', # 'abs_full_bath_diff', 'abs_half_bath_diff',
+    'abs_room_count_diff', 'abs_effective_age_diff',
+    'abs_subject_age_diff', 'abs_gla_diff',
+    'same_property_type', 'sold_recently', 'lot_util_diff', 'gla_per_bedroom_diff',
+    'condition_diff', # 'abs_bedrooms_diff'
+    # 'distance_to_subject_km', 'abs_lot_size_sf_diff'
 ]
+
 df[feature_cols] = df[feature_cols].astype(float)
 
 # Lookup actual property info 
@@ -55,7 +58,7 @@ def find_raw_values(order_id, candidate_address):
             "subject_gla": subject.get("gla"),
             "subject_lot_size_sf": subject.get("lot_size_sf"),
             "subject_property_type": subject.get("property_type"),
-            
+            "subject_condition": subject.get("condition")
         }
         for group in ("comps", "properties"):
             for prop in appraisal.get(group, []):
@@ -68,7 +71,8 @@ def find_raw_values(order_id, candidate_address):
                         "candidate_gla": prop.get("gla"),
                         "candidate_lot_size_sf": prop.get("lot_size_sf"),
                         "candidate_property_type": prop.get("property_type"),
-                        "candidate_close_price": prop.get("sale_price")
+                        "candidate_close_price": prop.get("sale_price"),
+                        "candidate_condition": prop.get("condition")
                     }
     return subject_vals
 
@@ -76,7 +80,7 @@ def find_raw_values(order_id, candidate_address):
 def gpt_explanation(score, pos_feats, neg_feats, candidate_address, subject_address):
     try:
         response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
+            model="gpt-3.5-turbo-1106",
             messages=[
                 {
                     "role": "system",
@@ -122,7 +126,7 @@ def gpt_explanation(score, pos_feats, neg_feats, candidate_address, subject_addr
 
     try:
         response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
+            model="gpt-3.5-turbo-1106",
             messages=[
                 {
                     "role": "system",

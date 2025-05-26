@@ -48,7 +48,7 @@ for _, row in appraisal_df.iterrows():
         "Feature": [
             "Bedrooms", "Full Bathrooms", "Half Bathrooms",
             "GLA (sq ft)", "Lot Size (sq ft)",
-            "Property Type"
+            "Property Type", "Condition"
         ],
         "Subject": [
             format_int(row.get("subject_bedrooms")),
@@ -56,7 +56,9 @@ for _, row in appraisal_df.iterrows():
             format_int(row.get("subject_num_half_baths")),
             format_int(row.get("subject_gla")),
             format_int(row.get("subject_lot_size_sf")),
-            row.get('subject_property_type') or "Not available"
+
+            row.get('subject_property_type') or "Not available",
+            row.get('subject_condition') or "Not available"
         ],
         "Candidate": [
             format_int(row.get("candidate_bedrooms")),
@@ -65,7 +67,8 @@ for _, row in appraisal_df.iterrows():
             format_int(row.get("candidate_gla")),
             format_int(row.get("candidate_lot_size_sf")),
 
-            row.get('candidate_property_type') or "Not available"
+            row.get('candidate_property_type') or "Not available",
+            row.get('candidate_condition') or "Not available"
         ]
     }
 
