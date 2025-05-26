@@ -481,12 +481,14 @@ def get_gla_per_bedroom(appraisal):
 def get_lot_util(appraisal):
     subject = appraisal['subject']
     subject_lot_size = subject.get('lot_size_sf')
+
     subject_gla = subject.get('gla')
 
     if not subject_lot_size or not subject_gla and subject_lot_size != 0:
         return appraisal
-
-    subject_lot_util = subject_gla / subject_lot_size
+    
+    subject_lot_size_sf = subject_lot_size * 43560
+    subject_lot_util = subject_gla / subject_lot_size_sf
 
     for comp in appraisal['comps']:
         comp_lot_size = comp.get('lot_size_sf')
@@ -557,6 +559,20 @@ def get_condition_diff(appraisal):
 
     return appraisal
 
+def get_basement_score_diff(appraisal):
+    subject = appraisal.get('subject')
+    subject_basement_score = subject.get('basement_score')
+
+    for comp in appraisal['comps']:
+        comp_basement_score = comp.get('basement_score')
+        comp['basement_score_diff'] = subject_basement_score - comp_basement_score
+
+    for prop in appraisal['properties']:
+        prop_basement_score = prop.get('basement_score')
+        prop['basement_score_diff'] = subject_basement_score - prop_basement_score
+
+    return appraisal
+
 def add_new_features():
     with open(INPUT_FILE, "r") as f:
             data = json.load(f)
@@ -587,6 +603,8 @@ def add_new_features():
         get_lot_util(appraisal)
 
         get_condition_diff(appraisal)
+
+        get_basement_score_diff(appraisal)
 
         feature_engineered.append(appraisal)
 

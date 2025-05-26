@@ -22,16 +22,20 @@ if SHUFFLE_LABELS:
 
 # Define feature columns
 feature_cols = [
-    # 'bath_score_diff', 'full_baths_diff', 'half_baths_diff',
     'room_count_diff', 'bedrooms_diff', 'effective_age_diff',
-    'subject_age_diff', 'gla_diff', # 'lot_size_sf_diff'
-    'abs_bath_score_diff', # 'abs_full_bath_diff', 'abs_half_bath_diff',
+    'subject_age_diff', 'gla_diff', 
+    'abs_bath_score_diff', 
     'abs_room_count_diff', 'abs_effective_age_diff',
     'abs_subject_age_diff', 'abs_gla_diff',
     'same_property_type', 'sold_recently', 'lot_util_diff', 'gla_per_bedroom_diff',
-    'condition_diff', # 'abs_bedrooms_diff'
-    # 'distance_to_subject_km', 'abs_lot_size_sf_diff'
+    'condition_diff', 'abs_basement_score_diff', 'basement_score_diff'
+    
+    # EXCLUDING BECAUSE OF SHAP ANALYSIS
+    # 'abs_bedrooms_diff', 'abs_full_bath_diff', 'abs_half_bath_diff',
+    # 'distance_to_subject_km', 'abs_lot_size_diff_acre', 'lot_size_diff_acre'
+    # 'bath_score_diff', 'full_baths_diff', 'half_baths_diff',
 ]
+
 
 df['label'] = df['is_comp']
 

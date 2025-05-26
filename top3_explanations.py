@@ -31,15 +31,18 @@ print(f"Using training data: {data_file}")
 
 # Feature columns 
 feature_cols = [
-    # 'bath_score_diff', 'full_baths_diff', 'half_baths_diff',
     'room_count_diff', 'bedrooms_diff', 'effective_age_diff',
-    'subject_age_diff', 'gla_diff', # 'lot_size_sf_diff'
-    'abs_bath_score_diff', # 'abs_full_bath_diff', 'abs_half_bath_diff',
+    'subject_age_diff', 'gla_diff', 
+    'abs_bath_score_diff', 
     'abs_room_count_diff', 'abs_effective_age_diff',
     'abs_subject_age_diff', 'abs_gla_diff',
     'same_property_type', 'sold_recently', 'lot_util_diff', 'gla_per_bedroom_diff',
-    'condition_diff', # 'abs_bedrooms_diff'
-    # 'distance_to_subject_km', 'abs_lot_size_sf_diff'
+    'condition_diff', 'abs_basement_score_diff', 'basement_score_diff'
+    
+    # EXCLUDING BECAUSE OF SHAP ANALYSIS
+    # 'abs_bedrooms_diff', 'abs_full_bath_diff', 'abs_half_bath_diff',
+    # 'distance_to_subject_km', 'abs_lot_size_diff_acre', 'lot_size_diff_acre'
+    # 'bath_score_diff', 'full_baths_diff', 'half_baths_diff',
 ]
 
 df[feature_cols] = df[feature_cols].astype(float)
@@ -85,12 +88,15 @@ def gpt_explanation(score, pos_feats, neg_feats, candidate_address, subject_addr
                 {
                     "role": "system",
                     "content": (
-                        """You are a real estate appraisal assistant. Your job is to explain why a machine learning model ranked a candidate property as more or less comparable to a subject property.
+                        """You are a real estate appraisal assistant. Your job is to explain why a machine learning model ranked a 
+                            candidate property as more or less comparable to a subject property.
 
-                            The model uses feature differences (e.g., size difference, age difference) between the candidate and subject. Positive SHAP values mean the feature made the 
-                            candidate more similar (better match), while negative SHAP values indicate dissimilarity.
+                            The model uses feature differences (e.g., size difference, age difference) between the candidate and subject. 
+                            Positive SHAP values mean the feature made the candidate more similar (better match), 
+                            while negative SHAP values indicate dissimilarity.
 
-                            Do not say whether the property is 'good' or 'bad'. Instead, explain how the model interpreted the feature similarities or differences that affected the score."""
+                            Do not say whether the property is 'good' or 'bad'. Instead, explain how the model interpreted the 
+                            feature similarities or differences that affected the score."""
 
                     )
                 },
@@ -106,7 +112,10 @@ def gpt_explanation(score, pos_feats, neg_feats, candidate_address, subject_addr
                         Features that made the candidate less similar:
                         {', '.join([f'{f} ({v:.2f})' for f, v in neg_feats]) or 'None'}
 
-                        Based only on the features and their impact, describe why the model produced this score. Focus on the similarity or difference in attributes.
+                        Based only on the features and their impact, describe why the model produced this score IN NONE TECHNICAL TERMS. Focus on the similarity or difference in attributes.
+                        There is no need to mention "similarity score" or anything like that. Simply explain why the model selected this property as if you were a real
+                        appraiser.  Think sentences like "The two properties have similar GLA, bedrooms, and bathrooms.  They differ a bit in lot size but ultimately this 
+                        was not enough to outweigh their similarities." Do not mention specific SHAP score or anything just focus on the property features and similarities.
                         """
                     )
                 }

@@ -47,7 +47,7 @@ for _, row in appraisal_df.iterrows():
     comparison_data = {
         "Feature": [
             "Bedrooms", "Full Bathrooms", "Half Bathrooms",
-            "GLA (sq ft)", "Lot Size (sq ft)",
+            "GLA (sq ft)", "Lot Size (SqFt)",
             "Property Type", "Condition"
         ],
         "Subject": [

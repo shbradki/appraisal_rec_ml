@@ -78,6 +78,7 @@ Users can provide feedback on poor comp predictions directly in the UI:
 - Merging this new data into the final dataset, prioritizing public remarks data as ground truth
 - This new data took the precision up to 98%, with condition difference being the most important new feature
 - Removed some of the less important features according to SHAP feature analysis
+
 ## Thoughts on Future Improvements
 
 - More data: Appraisers think about more than just things like "are there the same number of bedrooms" or "is the GLA similar". Things like trendy cabinetry or window sizes or general aesthetics are also important factors to consider for appraisers.

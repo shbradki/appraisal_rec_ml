@@ -301,6 +301,145 @@ def clean_sale_price(appraisal):
 
     return appraisal
         
+def parse_basement(raw_val):
+    val = (raw_val or "").lower().strip()
+
+    # Quick exits for known non-basement values
+    no_basement_terms = ["no basement", "none", "n/a", "condo common", "driveway", "included above"]
+    if any(term in val for term in no_basement_terms):
+        return {
+            "has_basement": 0,
+            "basement_finished": 0,
+            "basement_full_part": None,
+            "basement_walkout": 0
+        }
+
+    if "cellar" in val or "crawl" in val:
+        return {
+            "has_basement": 1,
+            "basement_finished": 0,
+            "basement_full_part": 0.5,
+            "basement_walkout": 0
+        }
+
+    return {
+        "has_basement": 1,
+        "basement_finished": get_finished(val),
+        "basement_full_part": get_full_part(val),
+        "basement_walkout": 1 if "walkout" in val or "wo" in val else 0
+    }
+
+def get_finished(val):
+    if "unfinished" in val:
+        return 0
+    if any(term in val for term in [
+        "part finished", "partial finished", "part/full", "full/part", "part / finished", "part devel"
+    ]):
+        return 1
+    if any(term in val for term in [
+        "finished", "illegal", "rec", "inlaw", "developed", "secondary suite"
+    ]):
+        return 1
+    return None
+
+def get_full_part(val):
+    if any(term in val for term in [
+        "full/part", "part/full", "part", "part finished", "partial finished", "crawl"
+    ]):
+        return 0.5
+    if "full" in val:
+        return 1
+    return None
+
+def parse_property_basement(raw_val):
+    val = (raw_val or "").lower().strip()
+
+    # Known "no basement" indicators
+    no_basement_terms = ["no basement", "none", "n/a", "suite", "see remarks", "unknown", "other, none"]
+    if any(term in val for term in no_basement_terms):
+        return {
+            "has_basement": 0,
+            "basement_finished": 0,
+            "basement_full_part": None,
+            "basement_walkout": 0
+        }
+
+    # Crawl or cellar
+    if "crawl" in val or "cellar" in val:
+        return {
+            "has_basement": 1,
+            "basement_finished": 0,
+            "basement_full_part": 0.5,
+            "basement_walkout": 0
+        }
+
+    # Walkout detection (walkout, walk-up, separate entry)
+    walkout = 1 if any(x in val for x in ["walk-out", "walkout", "walk-up", "sep entrance", "separate entrance", "separate/exterior entry"]) else 0
+
+    # Finished detection
+    if "finished" in val or "developed" in val:
+        basement_finished = 1
+    elif "unfinished" in val or "undeveloped" in val:
+        basement_finished = 0
+    else:
+        basement_finished = None
+
+    # Full/Part logic
+    if "partial" in val or "part bsmt" in val or "part" in val:
+        full_part = 0.5
+    elif "full" in val:
+        full_part = 1
+    else:
+        full_part = None
+
+    return {
+        "has_basement": 1,
+        "basement_finished": basement_finished,
+        "basement_full_part": full_part,
+        "basement_walkout": walkout
+    }
+
+def basement_score(row):
+    if row['has_basement'] == 0:
+        return 0
+    
+    score = 0
+    score += 1.0 * (row['basement_finished'] or 0)
+    score += 0.5 * (row['basement_full_part'] or 0)
+    score += 0.3 * (row['basement_walkout'] or 0)
+    
+    return round(score, 2)
+
+def clean_basement(appraisal):
+    subject = appraisal.get('subject')
+    parsed = parse_basement(subject.get('basement'))
+
+    subject['has_basement'] = parsed['has_basement']
+    subject['basement_finished'] = parsed['basement_finished']
+    subject['basement_full_part'] = parsed['basement_full_part']
+    subject['basement_walkout'] = parsed['basement_walkout']
+    subject['basement_score'] = basement_score(parsed)
+
+    for comp in appraisal.get('comps'):
+        parsed = parse_basement(comp.get('basement'))
+
+        comp['has_basement'] = parsed['has_basement']
+        comp['basement_finished'] = parsed['basement_finished']
+        comp['basement_full_part'] = parsed['basement_full_part']
+        comp['basement_walkout'] = parsed['basement_walkout']
+        comp['basement_score'] = basement_score(parsed)
+
+    for prop in appraisal.get('properties'):
+        parsed = parse_basement(prop.get('basement'))
+
+        prop['has_basement'] = parsed['has_basement']
+        prop['basement_finished'] = parsed['basement_finished']
+        prop['basement_full_part'] = parsed['basement_full_part']
+        prop['basement_walkout'] = parsed['basement_walkout']
+        prop['basement_score'] = basement_score(parsed)
+
+    return appraisal
+
 
 def clean_all_data():
     with open(INPUT_FILE, "r") as f:
@@ -317,15 +456,16 @@ def clean_all_data():
         clean_baths(appraisal)
         clean_conditions(appraisal)
         clean_sale_price(appraisal)
-
         clean_comp_distances(appraisal)
 
+        clean_basement(appraisal)
+        
         cleaned.append(appraisal)
 
     print(unique_subject_conditions)
     print(unique_comp_conditions)
     print(unique_property_conditions)
-    
+
     with open(OUTPUT_FILE, "w") as f:
         json.dump({"appraisals": cleaned}, f, indent=2)
 
@@ -333,4 +473,5 @@ def clean_all_data():
 
 
 if __name__ == "__main__":
+
     clean_all_data()
